@@ -7,11 +7,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import jdk.nashorn.internal.runtime.regexp.joni.Config;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -19,6 +16,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.view.JasperViewer;
 
+@SuppressWarnings("unchecked")
 public class DashboardPegawaiJasa extends javax.swing.JFrame {
 
     private DefaultTableModel tabelcd;
@@ -26,6 +24,7 @@ public class DashboardPegawaiJasa extends javax.swing.JFrame {
     /**
      * Creates new form Datapegawai
      */
+    @SuppressWarnings("unchecked")
     private void showTable() {
         tabelcd = new DefaultTableModel();
         table.setModel(tabelcd);
@@ -44,7 +43,6 @@ public class DashboardPegawaiJasa extends javax.swing.JFrame {
         // menampilkan database ke dalam tabel
         String search = txt_search.getText();
         try {
-            int no = 1;
             String sql = "SELECT * FROM data_pelanggan WHERE status = 'progress'";
             java.sql.Connection conn = (Connection) Connect.ConfigDB();
             java.sql.Statement stm = conn.createStatement();
@@ -93,7 +91,7 @@ public class DashboardPegawaiJasa extends javax.swing.JFrame {
             String sql = "SELECT * FROM data_pelanggan WHERE no='" + search + "'"
                     + "or nama LIKE '%" + search + "%' AND status='progress'";
             java.sql.ResultSet res;
-            try ( java.sql.Connection conn = (Connection) Connect.ConfigDB()) {
+            try (java.sql.Connection conn = (Connection) Connect.ConfigDB()) {
                 java.sql.Statement stm = conn.createStatement();
                 res = stm.executeQuery(sql);
                 while (res.next()) {
@@ -398,7 +396,7 @@ public class DashboardPegawaiJasa extends javax.swing.JFrame {
 
     private void btn_cetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cetakActionPerformed
         try {
-            String nota2 = ("C:\\Users\\User\\Documents\\NetBeansProjects\\berliant\\src\\laporan\\nota2.jrxml"); //link file directorylaporan / struk
+            String nota2 = ("C:\\Users\\yoni_\\Documents\\New folder\\SistemPengelolahDataKasir\\berliantExport\\src\\laporan\\nota2.jrxml"); //link file directorylaporan / struk
             HashMap hash = new HashMap();   //hashmap
             hash.put("no", txt_search.getText()); //mengambil parameter hash dari search
             JasperReport JRpt = JasperCompileManager.compileReport(nota2);  //menyiapkan data nota2

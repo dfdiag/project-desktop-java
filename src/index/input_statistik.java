@@ -1,8 +1,6 @@
 package index;
 
 import Connection.Connect;
-import index.admin.Jasa;
-import index.admin.Statistik;
 import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -10,8 +8,6 @@ import javax.swing.JOptionPane;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public final class input_statistik extends javax.swing.JFrame {
 

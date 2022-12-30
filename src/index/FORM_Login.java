@@ -7,7 +7,9 @@ import javax.swing.JPanel;
 import Connection.Connect;
 import java.awt.HeadlessException;
 import java.sql.SQLException;
+import java.util.Arrays;
 
+@SuppressWarnings("unchecked")
 public class FORM_Login extends javax.swing.JFrame {
 
     /**
@@ -156,7 +158,7 @@ int attempt = 1;
         try {
             String sql = " SELECT * FROM data_karyawan WHERE username ='"
                     + txtuser.getText() + "'AND password='"
-                    + txtpass.getText() + "'";
+                    + Arrays.toString(txtpass.getPassword())+ "'";
             java.sql.Connection conn = (Connection) Connect.ConfigDB();
             java.sql.PreparedStatement pst = conn.prepareStatement(sql);
             java.sql.ResultSet rs = pst.executeQuery(sql);

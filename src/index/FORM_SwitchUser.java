@@ -8,8 +8,9 @@ import java.awt.Color;
 
 /**
  *
- * @author HANIF FEBRIANSYAH
+ * @author DFDIAG
  */
+@SuppressWarnings("unchecked")
 public class FORM_SwitchUser extends javax.swing.JFrame {
 
     /**

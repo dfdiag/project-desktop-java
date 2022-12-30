@@ -1,18 +1,12 @@
 package index;
 
-import Connection.Connect;
 import index.admin.Jasa;
 import index.admin.Pengambilan;
 import index.admin.Statistik;
 import java.awt.Color;
-import java.awt.HeadlessException;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
+@SuppressWarnings("unchecked")
 public class DashboardAdminPelanggan extends javax.swing.JFrame {
 
     /**
@@ -93,7 +87,6 @@ public class DashboardAdminPelanggan extends javax.swing.JFrame {
         btnkeluar.setBackground(new java.awt.Color(111, 200, 255));
         btnkeluar.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
         btnkeluar.setText("LOGOUT");
-        btnkeluar.setPreferredSize(new java.awt.Dimension(89, 27));
         btnkeluar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnkeluarMouseClicked(evt);

@@ -16,6 +16,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.view.JasperViewer;
 
+@SuppressWarnings("unchecked")
 public class DashboardPegawaiPengambilan extends javax.swing.JFrame {
 
     private DefaultTableModel tabelcd;
@@ -23,6 +24,7 @@ public class DashboardPegawaiPengambilan extends javax.swing.JFrame {
     /**
      * Creates new form Datapegawai
      */
+    @SuppressWarnings("unchecked")
     private void showTable() {
         tabelcd = new DefaultTableModel();
         table.setModel(tabelcd);
@@ -41,7 +43,6 @@ public class DashboardPegawaiPengambilan extends javax.swing.JFrame {
         // menampilkan database ke dalam tabel
         String search = txt_search.getText();
         try {
-            int no = 1;
             String sql = "SELECT * FROM data_pelanggan WHERE status = 'diambil'";
             java.sql.Connection conn = (Connection) Connect.ConfigDB();
             java.sql.Statement stm = conn.createStatement();
@@ -142,7 +143,6 @@ public class DashboardPegawaiPengambilan extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btn_tambah = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         txt_search = new javax.swing.JTextField();
         btnkeluar = new javax.swing.JButton();
@@ -156,15 +156,6 @@ public class DashboardPegawaiPengambilan extends javax.swing.JFrame {
         btn_cetak = new javax.swing.JButton();
         btn_re = new javax.swing.JButton();
         Background1 = new javax.swing.JLabel();
-
-        btn_tambah.setBackground(new java.awt.Color(51, 153, 255));
-        btn_tambah.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btn_tambah.setText("TAMBAH");
-        btn_tambah.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_tambahActionPerformed(evt);
-            }
-        });
 
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -371,10 +362,6 @@ public class DashboardPegawaiPengambilan extends javax.swing.JFrame {
         new edit_jasa().setVisible(true);
     }//GEN-LAST:event_btn_editActionPerformed
 
-    private void btn_tambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tambahActionPerformed
-        new input_jasa().setVisible(true);
-    }//GEN-LAST:event_btn_tambahActionPerformed
-
     private void btn_pengambilanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pengambilanActionPerformed
         btn_pengambilan.setEnabled(false);
     }//GEN-LAST:event_btn_pengambilanActionPerformed
@@ -385,13 +372,13 @@ public class DashboardPegawaiPengambilan extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_statistikActionPerformed
 
     private void btn_reActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code Fhere:
         showTable();
     }//GEN-LAST:event_btn_reActionPerformed
 
     private void btn_cetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cetakActionPerformed
         try {
-            String nota2 = ("C:\\Users\\User\\Documents\\NetBeansProjects\\berliant\\src\\laporan\\nota2.jrxml"); //link file directorylaporan / struk
+            String nota2 = ("C:\\Users\\yoni_\\Documents\\New folder\\SistemPengelolahDataKasir\\berliantExport\\src\\laporan\\nota2.jrxml"); //ubah link file directory nota2 / struk
             HashMap hash = new HashMap();   //hashmap
             hash.put("no", txt_search.getText()); //mengambil parameter hash dari search
             JasperReport JRpt = JasperCompileManager.compileReport(nota2);  //menyiapkan data nota2
@@ -429,7 +416,7 @@ public class DashboardPegawaiPengambilan extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        
+
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -454,7 +441,6 @@ public class DashboardPegawaiPengambilan extends javax.swing.JFrame {
     private javax.swing.JButton btn_pengambilan;
     private javax.swing.JButton btn_re;
     private javax.swing.JButton btn_statistik;
-    private javax.swing.JButton btn_tambah;
     private javax.swing.JButton btnkeluar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

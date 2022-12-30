@@ -4,8 +4,10 @@ import Connection.Connect;
 import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 
+@SuppressWarnings("unchecked")
 public class FORM_LupaPassword extends javax.swing.JFrame {
 
     /**
@@ -251,22 +253,23 @@ public class FORM_LupaPassword extends javax.swing.JFrame {
         String username = Username.getText();
         String answer = Hint.getText();
         String question = QuestionKey.getText();
-        String new_password = NewPassword.getText();
+        char[] new_password = NewPassword.getPassword();
 
         try {
             String sql = "SELECT * FROM data_karyawan WHERE username='" + username + "' and hint='" + answer + "'";
-            java.sql.Connection conn = (Connection) Connect.ConfigDB();
-            java.sql.Statement stm = conn.createStatement();
-            java.sql.ResultSet res = stm.executeQuery(sql);
-            if (res.next()) {
-                stm.executeUpdate("UPDATE `data_karyawan` SET `password` ='" + new_password + "' WHERE `data_karyawan`.`username` ='" + username + "'");
-                JOptionPane.showMessageDialog(this, "Password telah diperbarui ;D");
-                this.dispose();
-                new FORM_Login().setVisible(true);
-            } else {
-                JOptionPane.showMessageDialog(this, "Hint salah!");
+            java.sql.ResultSet res;
+            try (java.sql.Connection conn = (Connection) Connect.ConfigDB()) {
+                java.sql.Statement stm = conn.createStatement();
+                res = stm.executeQuery(sql);
+                if (res.next()) {
+                    stm.executeUpdate("UPDATE `data_karyawan` SET `password` ='" + Arrays.toString(new_password) + "' WHERE `data_karyawan`.`username` ='" + username + "'");
+                    JOptionPane.showMessageDialog(this, "Password telah diperbarui ;D");
+                    this.dispose();
+                    new FORM_Login().setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Hint salah!");
+                }
             }
-            conn.close();
             res.close();
         } catch (HeadlessException | SQLException e) {
             JOptionPane.showMessageDialog(null, e);
@@ -294,15 +297,16 @@ public class FORM_LupaPassword extends javax.swing.JFrame {
 
         try {
             String sql = "SELECT QuestionHint FROM data_karyawan WHERE username='" + username + "'";
-            java.sql.Connection conn = (Connection) Connect.ConfigDB();
-            java.sql.Statement stm = conn.createStatement();
-            java.sql.ResultSet res = stm.executeQuery(sql);
-            if (res.next()) {
-                QuestionKey.setText(res.getString("QuestionHint"));
-            } else {
-                JOptionPane.showMessageDialog(this, "Username tidak ada!");
+            java.sql.ResultSet res;
+            try (java.sql.Connection conn = (Connection) Connect.ConfigDB()) {
+                java.sql.Statement stm = conn.createStatement();
+                res = stm.executeQuery(sql);
+                if (res.next()) {
+                    QuestionKey.setText(res.getString("QuestionHint"));
+                } else {
+                    JOptionPane.showMessageDialog(this, "Username tidak ada!");
+                }
             }
-            conn.close();
             res.close();
         } catch (HeadlessException | SQLException e) {
         }
@@ -321,15 +325,12 @@ public class FORM_LupaPassword extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FORM_LupaPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FORM_LupaPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FORM_LupaPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(FORM_LupaPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        
         //</editor-fold>
         //</editor-fold>
 

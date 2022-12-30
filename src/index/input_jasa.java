@@ -1,7 +1,6 @@
 package index;
 
 import Connection.Connect;
-import index.admin.Jasa;
 import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -9,8 +8,6 @@ import javax.swing.JOptionPane;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class input_jasa extends javax.swing.JFrame {
 
@@ -266,6 +263,8 @@ public class input_jasa extends javax.swing.JFrame {
         txt_telepon.setText(null);
         txt_alamat.setText(null);
         txt_harga.setText(null);
+        txt_kembali.setText(null);
+        txt_bayar.setText(null);
         txt_beratBarang.setText(null);
         cbJenisLaundry.setSelectedIndex(0);
         txt_biaya.setText(null);
@@ -299,11 +298,10 @@ public class input_jasa extends javax.swing.JFrame {
         }
     }
 
-    
-    private void kembalian(){
-        if (txt_biaya.getText().isEmpty()){                 //jika data berat kosong maka menampilkan informasi berat barang belum diisi
+    private void kembalian() {
+        if (txt_biaya.getText().isEmpty()) {                 //jika data berat kosong maka menampilkan informasi berat barang belum diisi
             JOptionPane.showMessageDialog(null, "Berat Barang belum diisi / Hitung biaya");
-        }else {
+        } else {
             double total_biaya = Double.parseDouble(txt_biaya.getText()),
                     bayar = Double.parseDouble(txt_bayar.getText()),
                     kembaliannya;
@@ -312,7 +310,7 @@ public class input_jasa extends javax.swing.JFrame {
             tanggal();
         }
     }
-    
+
     private void cbJenisLaundryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbJenisLaundryActionPerformed
         // TODO add your handling code here:
 
@@ -380,7 +378,7 @@ public class input_jasa extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_hitungActionPerformed
 
     private void txt_bayarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_bayarKeyReleased
-    kembalian(); // menghitung dan menginput kembalian
+        kembalian(); // menghitung dan menginput kembalian
     }//GEN-LAST:event_txt_bayarKeyReleased
 
     /**

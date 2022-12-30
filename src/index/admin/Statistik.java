@@ -22,6 +22,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.view.JasperViewer;
 
+@SuppressWarnings("unchecked")
 public class Statistik extends javax.swing.JFrame {
 
     private DefaultTableModel tabelcd;

@@ -4,18 +4,18 @@
  */
 package index;
 
-import com.mysql.jdbc.Driver;
-import java.sql.Connection;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import Connection.Connect;
 import java.awt.HeadlessException;
 import java.sql.SQLException;
+import java.util.Arrays;
 
 /**
  *
- * @author HANIF FEBRIANSYAH
+ * @author DFDIAG
  */
+@SuppressWarnings("unchecked")
 public class FORM_Registrasi extends javax.swing.JFrame {
 
     /**
@@ -233,7 +233,7 @@ public class FORM_Registrasi extends javax.swing.JFrame {
     private void btnsubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubmitActionPerformed
         // TODO add your handling code here:
         String username = txtuser.getText();
-        String password = txtpass.getText();
+        char[] password = txtpass.getPassword();
         String nama = txtnama.getText();
         String alamat = txtalamat.getText();
         String no_ktp = txtktp.getText();
@@ -251,7 +251,7 @@ public class FORM_Registrasi extends javax.swing.JFrame {
 
         try {
             try (Statement statement = (Statement) Connect.ConfigDB().createStatement()) {
-                statement.executeUpdate("insert into data_karyawan VALUES('" + username + "','" + password + "','" + nama + "','" + alamat + "','" + no_ktp + "','" + no_telpn + "','" + jenis_kelamin + "','" + question + "','" + hint + "','" + level1 + "');"
+                statement.executeUpdate("insert into data_karyawan VALUES('" + username + "','" + Arrays.toString(password) + "','" + nama + "','" + alamat + "','" + no_ktp + "','" + no_telpn + "','" + jenis_kelamin + "','" + question + "','" + hint + "','" + level1 + "');"
                 );
             }
             JOptionPane.showMessageDialog(null, "data berhasil disimpan");
@@ -290,25 +290,22 @@ public class FORM_Registrasi extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FORM_Registrasi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FORM_Registrasi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FORM_Registrasi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(FORM_Registrasi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FORM_Registrasi().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new FORM_Registrasi().setVisible(true);
         });
     }
 

@@ -4,9 +4,7 @@
  */
 package index;
 
-import com.mysql.cj.jdbc.Driver;
 import Connection.Connect;
-import index.admin.Jasa;
 import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -14,12 +12,10 @@ import javax.swing.JOptionPane;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
- * @author Yaya
+ * @author DFDIAG
  */
 public class edit_jasa extends javax.swing.JFrame {
 

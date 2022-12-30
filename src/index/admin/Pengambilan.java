@@ -20,8 +20,9 @@ import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
- * @author HANIF FEBRIANSYAH
+ * @author DFDIAG
  */
+@SuppressWarnings("unchecked")
 public class Pengambilan extends javax.swing.JFrame {
 
     private DefaultTableModel tabelcd;
