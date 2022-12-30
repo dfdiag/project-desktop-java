@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="396" pageHeight="396" columnWidth="356" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="63e781ab-b892-4f93-9362-7a8eb3a02b0c">
+	<property name="ireport.zoom" value="2.1435888100000016"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="no" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from data_pelanggan where no = $P{no}]]>
+	</queryString>
+	<field name="no" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telepon" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alamat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="berat_barang" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jenis_laundry" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="harga" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="biaya" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="bayar" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kembali" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="status" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tanggal" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="data_pakaian" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="no_1" class="java.lang.Integer" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{no}]]></variableExpression>
+	</variable>
+	<variable name="nama_1" class="java.lang.Integer" resetType="Column" calculation="DistinctCount">
+		<variableExpression><![CDATA[$F{nama}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement x="54" y="4" width="252" height="29" uuid="117e7a96-8356-4d3c-9c70-5367490ebb82"/>
+				<textElement>
+					<font fontName="Serif" size="18"/>
+				</textElement>
+				<text><![CDATA[=== BERLIAN LAUNDRY ===]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement x="88" y="0" width="184" height="20" uuid="90ff2022-bee7-4fe3-9b83-38a9df962efe"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[ Jln. Merpati No.37 Telp.08122313122]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="54" height="20" uuid="e65108ce-cb37-4ff6-8cab-127e59eae834"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[Customer :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="21" width="54" height="20" uuid="a0dafeba-07e4-4b4a-a2a4-06345a3a864e"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[ID	:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="40" width="356" height="1" uuid="0d23fdfd-8fa0-441f-bc8e-bc3f2ec78a50"/>
+			</line>
+			<staticText>
+				<reportElement x="205" y="1" width="41" height="20" uuid="e2717a5f-a6d1-4445-acb6-bdc96ecde584"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[Tanggal :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="54" y="1" width="100" height="20" uuid="11aed6c6-6ef8-49f6-8b10-039a12c3939c"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="54" y="21" width="100" height="20" uuid="2ec01f20-c6e0-40f4-aaa1-ba341fafd146"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{no}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="246" y="1" width="110" height="20" uuid="47f8bed0-a925-49f1-b4b0-663782933edf"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tanggal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="205" y="20" width="41" height="20" uuid="bea52bc6-58ea-4f04-ac56-6787c260d389"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[Waktu :]]></text>
+			</staticText>
+			<textField pattern="HH.mm">
+				<reportElement x="246" y="20" width="110" height="20" uuid="e40db354-c5ec-482a-94c2-522e9a7d88a1"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tanggal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="89" splitType="Stretch">
+			<staticText>
+				<reportElement x="96" y="11" width="72" height="20" uuid="a3f5718f-4b56-48f2-bfb7-278e4f1201e9"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[Berat Barang /kg]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="258" y="11" width="88" height="20" uuid="414ea5c8-240d-42a2-bc16-8c15c1eb35f1"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[biaya]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="186" y="11" width="60" height="20" uuid="f7d3257c-1e62-4cbe-ac27-70a61f3589aa"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[harga]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="96" y="31" width="72" height="20" uuid="cf5aa682-282d-4adb-a222-753ab07b2728"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{berat_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="31" width="60" height="20" uuid="f39bcd58-1c1b-4a37-aedc-5fa984cf32f8"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{harga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="258" y="31" width="88" height="20" uuid="702b7b89-e186-4881-9168-93c15d0c53ba"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{biaya}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="31" width="96" height="20" uuid="f628650b-ca3b-467d-90fd-2597dfc055e4"/>
+				<textFieldExpression><![CDATA[$F{data_pakaian}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="11" width="96" height="20" uuid="2fb243d2-230f-4ec9-a637-6e34214e19e3"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[Item]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="90" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="356" height="1" uuid="7560de4a-3b12-4e39-a396-68d3effc6b03"/>
+			</line>
+			<staticText>
+				<reportElement x="215" y="4" width="53" height="20" uuid="3b78bd02-9bcd-40de-a552-3ac5bd733461"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[Total	:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="215" y="24" width="53" height="20" uuid="ccb6a203-d806-4b53-b5e5-e79baa7bceea"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[Bayar	:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="215" y="46" width="53" height="20" uuid="cefef7a9-ff9b-4822-859a-23ff0e49a326"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[Kembali	:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="268" y="4" width="88" height="20" uuid="59b28061-cdc9-47d9-8401-db92689f1d6d"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{biaya}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="268" y="24" width="88" height="20" uuid="f11d094a-a823-49ab-857b-32e24355ed14"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bayar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="268" y="46" width="88" height="20" uuid="b27dfe4c-3133-4b69-be71-406e2bf7a554"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kembali}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="88" y="0" width="184" height="18" uuid="ba550787-4028-414d-b048-07ed05bc33c6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[Support By BlackarcTeam]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="18" width="305" height="12" uuid="2cff9794-d0b1-46ce-901e-7fe56f6413bd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="8"/>
+				</textElement>
+				<text><![CDATA[Layanan app Telp. 08989000301 Email : E41221137@student.polije.ac.id]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

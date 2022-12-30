@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b6ad1c6d-ce9c-4532-b6e4-61e2ff5a1591">
+	<property name="ireport.zoom" value="1.771561000000007"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="tgl1" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tgl2" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT *
+FROM statistik
+WHERE (tanggal BETWEEN $P{tgl1} AND $P{tgl2});]]>
+	</queryString>
+	<field name="No" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tanggal" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_barang" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="biaya_pengeluaran" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="biaya_pemasukan" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pendapatan_bersih" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="66" splitType="Stretch">
+			<staticText>
+				<reportElement x="155" y="16" width="252" height="29" uuid="71ca3bb8-f7d7-4b15-9b52-53c84f65d1a3"/>
+				<textElement>
+					<font fontName="Serif" size="18"/>
+				</textElement>
+				<text><![CDATA[=== BERLIAN LAUNDRY ===]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="194" y="45" width="184" height="20" uuid="a68b04b9-0692-4c04-8b62-0611acb513eb"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[ Jln. Merpati No.37 Telp.08122313122]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="34" splitType="Stretch">
+			<line>
+				<reportElement x="35" y="0" width="488" height="1" uuid="c88b21c0-c11b-44c3-953b-66937fd0b6d0"/>
+			</line>
+			<staticText>
+				<reportElement x="19" y="14" width="51" height="20" uuid="7d0461bf-d907-4fa5-a045-9b5cac02e3ba"/>
+				<textElement>
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Periode	:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="155" y="14" width="24" height="19" uuid="4225d106-eb24-49b9-8875-7a6d94f7261e"/>
+				<textElement>
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[s.d]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="70" y="14" width="85" height="19" uuid="5a67a807-94f6-425a-898e-dcdefc466578"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tgl1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="179" y="14" width="100" height="19" uuid="9bfe9d92-8c05-461e-a160-be743d6afd42"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tgl2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement x="11" y="11" width="22" height="20" uuid="d251bd56-6561-4883-865d-cc31f76de396"/>
+				<textElement>
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="45" y="11" width="58" height="20" uuid="89400cbc-3c70-49a5-a853-34d532be2a0b"/>
+				<textElement textAlignment="Left">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tanggal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="131" y="11" width="89" height="20" uuid="922fd582-af5d-418c-90c4-49ec8e4572cd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Keterangan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="244" y="11" width="89" height="20" uuid="250b18d8-1a85-4199-9f98-e58392f465e6"/>
+				<textElement textAlignment="Left">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Biaya Pengeluaran]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="354" y="11" width="100" height="20" uuid="6b0dda73-e115-49fd-96c8-599c8dda6aca"/>
+				<textElement>
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Biaya Pemasukan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="11" width="95" height="20" uuid="e3167d84-81a4-4cbf-a578-d3625f122965"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pendapatan Bersih]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="37" width="555" height="1" uuid="ab0591f2-c71f-4581-98d3-496115842c6c"/>
+			</line>
+			<line>
+				<reportElement x="34" y="0" width="1" height="37" uuid="cb04bb71-d7d0-4ba4-81b8-615b08457ce3"/>
+			</line>
+			<line>
+				<reportElement x="131" y="0" width="1" height="37" uuid="7f65f5a2-dc25-452c-b10d-2c804fae2fe3"/>
+			</line>
+			<line>
+				<reportElement x="232" y="0" width="1" height="37" uuid="057072be-4b98-466b-ba2c-d4ec8bf25260"/>
+			</line>
+			<line>
+				<reportElement x="338" y="0" width="1" height="37" uuid="3591ca3c-6d38-4ddc-9a4e-9c2682bb1b52"/>
+			</line>
+			<line>
+				<reportElement x="459" y="0" width="1" height="37" uuid="4bf61d2a-605b-45ab-82de-9262ba47696a"/>
+			</line>
+			<line>
+				<reportElement x="554" y="0" width="1" height="37" uuid="acc1398f-9ee1-4c2f-9f02-8472b8b29738"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="1" height="37" uuid="38877d4b-5051-4297-970e-68bbef01be25"/>
+			</line>
+			<line>
+				<reportElement x="1" y="0" width="554" height="1" uuid="6ef16c42-2f0b-4aba-9fa7-d19636b8959d"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement x="11" y="0" width="22" height="20" uuid="1432a37b-0c2e-4bbd-995b-3182cc287501"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{No}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="471" y="0" width="84" height="20" uuid="4756bfd3-36f7-4c22-8d0c-71322fe46c52"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pendapatan_bersih}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="34" y="-2" width="1" height="42" uuid="3e34d1a2-2a8e-41eb-ba05-0bc0b417bede"/>
+			</line>
+			<line>
+				<reportElement x="131" y="0" width="1" height="40" uuid="c5808636-385b-4e26-a96f-060e8fca8049"/>
+			</line>
+			<line>
+				<reportElement x="232" y="0" width="1" height="40" uuid="c17864ef-2701-430b-8569-26230618ad9e"/>
+			</line>
+			<line>
+				<reportElement x="0" y="39" width="555" height="1" uuid="cd081b81-01f3-48e9-97c7-5c04d041cf33"/>
+			</line>
+			<line>
+				<reportElement x="0" y="-1" width="1" height="40" uuid="0e20eabf-fa2b-4505-ab6e-be6485b61ceb"/>
+			</line>
+			<line>
+				<reportElement x="338" y="0" width="1" height="39" uuid="3834a11c-6324-4e14-aae5-efb293535f65"/>
+			</line>
+			<line>
+				<reportElement x="459" y="0" width="1" height="39" uuid="9c0a162d-0fd5-4394-996e-590277b05ec3"/>
+			</line>
+			<line>
+				<reportElement x="554" y="0" width="1" height="39" uuid="ea198ef7-ccc4-425a-b3fd-54fe6c90096f"/>
+			</line>
+			<textField pattern="MMMMM-yy">
+				<reportElement x="35" y="0" width="68" height="20" uuid="1761bd3e-6438-4351-8e57-a1ff3c43eb5d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tanggal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="131" y="0" width="89" height="20" uuid="6d4483db-fdc1-4529-8574-9d4b7a62459a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="244" y="0" width="69" height="20" uuid="2d406f47-82cd-48f6-80d5-03798827eec0"/>
+				<textElement textAlignment="Left">
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{biaya_pengeluaran}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="355" y="0" width="99" height="20" uuid="f283248d-b3b1-4e52-bf4b-3ea0adaa52f5"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{biaya_pemasukan}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement x="147" y="18" width="305" height="12" uuid="639afa3c-1b62-48b2-bae3-e19232b5be75"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="8"/>
+				</textElement>
+				<text><![CDATA[Layanan app Telp. 08989000301 Email : E41221137@student.polije.ac.id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="194" y="0" width="184" height="18" uuid="bf3fa3bb-10cd-4ce1-a34a-40cb27dbc5f7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif"/>
+				</textElement>
+				<text><![CDATA[Support By BlackarcTeam]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+</jasperReport>
